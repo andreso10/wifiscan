@@ -1,7 +1,0 @@
-{
-  "name": "wifiscan",
-  "author": "Joe Goggins <andreso10@gmail.com>",
-  "license": "MIT",
-  "version": "0.0.10",
-  "description": "Scans wifi networks"
-}
