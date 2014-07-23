@@ -2,6 +2,6 @@
   "name": "wifiscan",
   "author": "Andres Ordonez <andreso10@gmail.com>",
   "license": "MIT",
-  "version": "0.0.10",
+  "version": "0.0.20",
   "description": "Scans wifi networks"
 }
