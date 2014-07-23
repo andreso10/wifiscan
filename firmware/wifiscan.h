@@ -11,7 +11,7 @@ typedef struct WifiScanResults {
 } WifiScanResults_t;
 
 
-class WifiScan {
+class wifiscan {
     public:
         int startScan();
         bool Next(char *line, uint8_t len);
