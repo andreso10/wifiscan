@@ -1,7 +1,7 @@
 #include "wifiscan.h"
 #include "application.h"
 
-void parseScanResultToJson(wifiscanResults_t result, char *line);
+void parseScanResultToJson(WifiScanResults_t result, char *line);
 void bytesToHex(unsigned char *data, int length, char* buffer);
 
 void wipeStr(char *str, int len) {
@@ -20,9 +20,8 @@ int wifiscan::startScan() {
     return 0;
 }
 
-
 bool wifiscan::Next(char *line, uint8_t len) {
-    wifiscanResults_t scanResult;
+    WifiScanResults_t scanResult;
     
     wipeStr(line, len);
     wipeStr((char *)scanResult.ssid, 32);
@@ -43,13 +42,10 @@ bool wifiscan::Next(char *line, uint8_t len) {
     return true;
 }
 
-
-
-
 /**
  * Format a SSID Scan result into a GeoLocation API Wifi Object 
  */
-void parseScanResultToJson(wifiscanResults_t result, char *line) {
+void parseScanResultToJson(WifiScanResults_t result, char *line) {
     //uint8_t idx = 0;
     
     uint8_t length = (result.security_ssidlen >> 2);
@@ -71,8 +67,6 @@ void parseScanResultToJson(wifiscanResults_t result, char *line) {
     strncpy(line, json.c_str(), json.length());
 }
 
-
-
 void bytesToHex(unsigned char *data, int length, char* buffer) {	
 	const char * hex = "0123456789ABCDEF";	
 	int i=0, a=0;
@@ -87,5 +81,3 @@ void bytesToHex(unsigned char *data, int length, char* buffer) {
 	buffer[a-1] = 0;	//null
 	buffer[a] = 0;
 }
-
-
